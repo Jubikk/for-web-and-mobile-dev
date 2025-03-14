@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joebeck Andrew F. Gusi">
+    <meta name="description" content="A webpage showcasing the PUP Hymn with audio playback.">
+    <title>PUP Hymn</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('background pup.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            filter: blur(10px);
+            z-index: -1;
+        }
+        header, footer {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            background-color: #800000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        footer {
+            bottom: 0;
+        }
+        .mainbox {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+            z-index: 1;
+        }
+        .hymn-text {
+            font-size: 1.8em;
+            height: 250px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 15px;
+            text-align: center;
+            line-height: 2;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #800000;
+            transition: all 0.3s ease;
+        }
+        audio {
+            margin-top: 20px;
+            width: 100%;
+        }
+        .youtube-button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #800000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .youtube-button:hover {
+            background-color: #a00000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="pup logo.png" alt="PUP LOGO" width="60" height="60">
+        <h1>POLYTECHNIC UNIVERSITY OF THE PHILIPPINES</h1>
+    </header>
+    <div class="mainbox">
+        <h2 style="color: #800000;">PUP HYMN</h2>
+        <i>Composed by: S. Calabig, S. Roldan, and R. Amaranto</i>
+        <div class="hymn-text" id="hymn-text"></div>
+        <audio id="hymn-audio" controls>
+            <source src="PUP HYMN.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button class="youtube-button" onclick="window.open('https://www.youtube.com/watch?v=Yib_s5UeGvc&embeds_referring_euri=https%3A%2F%2Fwww.pup.edu.ph%2Fabout%2Fhymn&source_ve_path=Mjg2NjY', '_blank')">Watch on YouTube</button>
+    </div>
+    <footer>
+        <p>Copyright © 2017 Polytechnic University of the Philippines</p>
+    </footer>
+    <script>
+        const lyrics = [
+            { time: 13, text: "Sintang Paaralan" },
+            { time: 15, text: "Tanglaw ka ng bayan" },
+            { time: 18, text: "Pandayan ng isip ng kabataan" },
+            { time: 24, text: "Kami ay dumating nang salat sa yaman" },
+            { time: 30, text: "Hanap na dunong ay iyong alay" },
+            { time: 36, text: "Ang layunin mong makatao" },
+            { time: 41, text: "Dinarangal ang Pilipino" },
+            { time: 48, text: "Ang iyong aral, diwa, adhikang taglay" },
+            { time: 53, text: "PUP, aming gabay" },
+            { time: 56, text: "Paaralang dakila" },
+            { time: 62, text: "PUP, pinagpala" },
+            { time: 69, text: "Gagamitin ang karunungan" },
+            { time: 75, text: "Mula sa iyo, para sa bayan" },
+            { time: 80, text: "Ang iyong aral, diwa, adhikang taglay" },
+            { time: 86, text: "PUP, aming gabay" },
+            { time: 90, text: "Paaralang dakila" },
+            { time: 95, text: "PUP, pinagpala" },
+        ];
+
+        const audio = document.getElementById('hymn-audio');
+        const hymnText = document.getElementById('hymn-text');
+        
+        lyrics.forEach((line) => {
+            const span = document.createElement('span');
+            span.innerHTML = line.text;
+            span.setAttribute('data-time', line.time);
+            hymnText.appendChild(span);
+            hymnText.appendChild(document.createElement('br'));
+        });
+        
+        function updateLyrics() {
+            const currentTime = audio.currentTime;
+            let closestLine = null;
+            let minDiff = Infinity;
+
+            hymnText.querySelectorAll('span').forEach(span => {
+                const time = parseFloat(span.getAttribute('data-time'));
+                const diff = Math.abs(time - currentTime);
+                if (diff < minDiff) {
+                    minDiff = diff;
+                    closestLine = span;
+                }
+                span.classList.remove('highlight');
+            });
+
+            if (closestLine) {
+                closestLine.classList.add('highlight');
+                closestLine.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        audio.addEventListener('timeupdate', updateLyrics);
+    </script>
+</body>
+</html>
