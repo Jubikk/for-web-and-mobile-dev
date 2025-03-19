@@ -47,6 +47,7 @@ body {
   text-align: left;
   text-decoration: none ;
   line-height: 13px;
+  margin-bottom: 5px;
 }
 
 #CoffeeCup {
@@ -65,3 +66,12 @@ body {
   font-style: italic;
   font-size: 10px;
 }
+
+#main-content section {
+  display: none;
+}
+
+#main-content section:target {
+  display: block;
+}
+
