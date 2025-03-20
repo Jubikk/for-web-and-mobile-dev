@@ -90,7 +90,7 @@ body {
 
 .food:hover {
   color: #ccaa66;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #coffee {
@@ -123,44 +123,30 @@ body {
   font-size: 16px;
 }
 
-#music {
-    text-align: center;
-    padding: 20px;
-}
 
 audio {
-    display: none;
-    width: 80%;
-    margin: 20px auto;
-}
-
-audio:target {
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 20px;
-}
-
-button {
-    padding: 10px 20px;
-    margin: 5px;
-    background: #ccaa66;
-    color: #330000;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background: #E8D882;
-}
-
-#main-content section {
-    height: 100%;
-    overflow-y: auto;
-}
-
+            display: none;
+        }
+        
+        /* Show targeted audio player */
+        audio:target {
+            display: block;
+            margin: 20px auto;
+        }
+        
+        .song-buttons {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
 section {
   display: none;
 }
