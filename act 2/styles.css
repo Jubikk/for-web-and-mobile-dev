@@ -31,6 +31,7 @@ body {
   padding-left: 20px;
   background-color: #E8D882;
   white-space: pre-line;
+  
 }
 
 #main-content {
@@ -45,14 +46,18 @@ body {
 .choices {
   display: block;
   text-align: left;
-  text-decoration: none ;
-  line-height: 13px;
+  text-decoration: none;
+  line-height: 10px;
   margin-bottom: 5px;
 }
 
+.choices:hover {
+  color: rgb(12, 112, 189);
+  font-size: 15px;
+}
 #CoffeeCup {
   position: absolute;
-  right: 20px;
+  right: 10px;
 }
 
 #footer {
@@ -67,11 +72,99 @@ body {
   font-size: 10px;
 }
 
+#menu {
+  width: 230px;
+  height: auto;
+  margin: 0 auto;
+  padding-left: 20px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.food {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: #330000; 
+}
+
+.food:hover {
+  color: #ccaa66;
+  font-size: 18px;
+}
+
+#coffee {
+  width: 530px;
+  height: auto;
+  margin: 0 auto;
+  padding-left: 20px;
+  font-size: 15px;
+  text-align:justify;
+  line-height: 20px;
+}
+
+.backbutton {
+  display: inline-block;
+  text-align: right;
+  text-decoration: none;
+  color: #330000;
+  border: 1px solid #330000;
+  padding: 5px;
+  background-color: #f1e8b0;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.backbutton:hover {
+  color: #330000;
+  background-color: #ccaa66;
+  font-size: 16px;
+}
+
+#music {
+    text-align: center;
+    padding: 20px;
+}
+
+audio {
+    display: none;
+    width: 80%;
+    margin: 20px auto;
+}
+
+audio:target {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    background: #ccaa66;
+    color: #330000;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #E8D882;
+}
+
 #main-content section {
+    height: 100%;
+    overflow-y: auto;
+}
+
+section {
   display: none;
 }
 
-#main-content section:target {
+section:target {
   display: block;
 }
-
