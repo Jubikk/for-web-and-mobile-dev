@@ -118,47 +118,144 @@
                         <li>Syrup | <i>Vanilla, Caramel, Hazelnut, or Seasonal</i></li>
                         <li>Milk Options | <i>Almond, Soy, Oat, or Coconut</i></li>
                         <li>Whipped Cream | <i>Top off your drink</i></li>
-                        <li>Flavor Boost | <i>Extra flavor for your drink</i></li>
+                        <li>F   lavor Boost | <i>Extra flavor for your drink</i></li>
                         <a class="backbutton" href="#menu">Back to Menu</a>
             </section>
             <section id="music">
-                <p>Wanna listen to some tunes?</p>
+                <p>🎵 Wanna listen to some tunes? 🎧</p>
                         <a href="#BMF"><button>BMF</button></a>
                         <a href="#Birds"><button>Birds of a feather</button></a>
                         <a href="#Dulo"><button>Dulo ng hangganan</button></a>
                         <a href="#End"><button>End of beginning</button></a>
                         <a href="#Glue"><button>Glue song</button></a>
-                        <a href="#song6"><button>Song 6</button></a>
-                        <a href="#song7"><button>Song 7</button></a>
-                        <a href="#song8"><button>Song 8</button></a>
-                        <a href="#song9"><button>Song 9</button></a>
+                        <a href="#Yours"><button>I wanna Be Yours</button></a>
+                        <a href="#luther"><button>luther</button></a>
+                        <a href="#Yakap"><button>Yakap</button></a>
+                        <a href="#Like"><button>Like Him</button></a>
                         
             </section>
             
-            <audio id="BMF" controls>
+            <audio id="BMF" title="BMF - Baby M and Friends" controls>
                 <source src="music/BMF.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-            <audio id="Birds" controls>
+            <audio id="Birds" title="Birds of a Feather" controls>
                 <source src="music/Birds of a feather.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-            <audio id="Dulo" controls>
+            <audio id="Dulo" title="Dulo ng Hangganan" controls>
                 <source src="music/Dulo ng hangganan.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-            <audio id="End" controls>
+            <audio id="End" title="End of Beginning" controls>
                 <source src="music/End of beginning.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
-            <audio id="Glue" controls>
+            <audio id="Glue" title="Glue Song" controls>
                 <source src="music/Glue song.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
-            
+            </audio>
+            <audio id="Yours" title="I Wanna Be Yours" controls>
+                <source src="music/I wanna Be Yours.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <audio id="luther" title="Luther" controls>
+                <source src="music/luther.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <audio id="Yakap" title="Yakap" controls>
+                <source src="music/Yakap.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <audio id="Like" title="Like Him" controls>
+                <source src="music/Like Him.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
 
+            <script>
+                document.addEventListener('play', function(e){
+                    if(e.target.tagName.toLowerCase() === 'audio') {
+                        const audios = document.getElementsByTagName('audio');
+                        for(let i = 0; i < audios.length; i++) {
+                            if(audios[i] !== e.target) {
+                                audios[i].pause();
+                                audios[i].currentTime = 0;
+                            }
+                        }
+                    }
+                }, true);
+            </script>
 
             <section id="jobs">
-                <p>Check out our job openings.</p>
+                <h2>Career Opportunities</h2>
+                <div class="job-grid">
+                    <div class="job-card">
+                        <span class="job-icon">👨‍🍳</span>
+                        <h3>Barista</h3>
+                        <p>Full-time / Part-time</p>
+                        <ul>
+                            <li>Craft perfect coffee</li>
+                            <li>Customer service</li>
+                            <li>Team player</li>
+                        </ul>
+                        <a href="mailto:jake@jcoffee.com" class="apply-btn">Apply Now</a>
+                    </div>
+                    <div class="job-card">
+                        <span class="job-icon">🧁</span>
+                        <h3>Pastry Chef</h3>
+                        <p>Full-time</p>
+                        <ul>
+                            <li>Baking expertise</li>
+                            <li>Create new recipes</li>
+                            <li>Quality control</li>
+                        </ul>
+                        <a href="mailto:jake@jcoffee.com" class="apply-btn">Apply Now</a>
+                    </div>
+                    <div class="job-card">
+                        <span class="job-icon">💼</span>
+                        <h3>Store Manager</h3>
+                        <p>Full-time</p>
+                        <ul>
+                            <li>Leadership skills</li>
+                            <li>Staff training</li>
+                            <li>Operations</li>
+                        </ul>
+                        <a href="mailto:jake@jcoffee.com" class="apply-btn">Apply Now</a>
+                    </div>
+                    <div class="job-card">
+                        <span class="job-icon">🫖</span>
+                        <h3>Tea Specialist</h3>
+                        <p>Full-time</p>
+                        <ul>
+                            <li>Tea knowledge</li>
+                            <li>Blend creation</li>
+                            <li>Tea ceremonies</li>
+                        </ul>
+                        <a href="mailto:jake@jcoffee.com" class="apply-btn">Apply Now</a>
+                    </div>
+                    <div class="job-card">
+                        <span class="job-icon">📱</span>
+                        <h3>Social Media</h3>
+                        <p>Part-time</p>
+                        <ul>
+                            <li>Content creation</li>
+                            <li>Photography</li>
+                            <li>Marketing</li>
+                        </ul>
+                        <a href="mailto:jake@jcoffee.com" class="apply-btn">Apply Now</a>
+                    </div>
+                    <div class="job-card">
+                        <span class="job-icon">🎵</span>
+                        <h3>Events Host</h3>
+                        <p>Part-time</p>
+                        <ul>
+                            <li>MC skills</li>
+                            <li>Event planning</li>
+                            <li>Music nights</li>
+                        </ul>
+                        <a href="mailto:jake@jcoffee.com" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
             </section>
         </div>
         <div id="footer">

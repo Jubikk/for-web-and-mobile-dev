@@ -1,156 +1,356 @@
+/* Base Styles */
 body {
-  font-family: Verdana;
-  background-color: #ffffcc;
-  color: #330000;
+    font-family: Verdana;
+    background-color: #ffffcc;
+    color: #330000;
 }
 
+/* Layout Containers */
 #container {
-  margin-left: 23%;
-  margin-right: 20%;
-  margin-top: 20px;
-  height: 419px;
-  width: 750px;
-  padding: 0;
-  border-style: solid;
+    margin: 20px 20% 0 23%;
+    height: 419px;
+    width: 750px;
+    padding: 0;
+    border: solid;
 }
 
 #header {
-  background-color: #ccaa66;
-  text-align: center;
-  border-bottom-style: solid;
-  border-top-style: solid;
-  height: 80px;
-  margin: 0;
+    background-color: #ccaa66;
+    text-align: center;
+    border-bottom: solid;
+    border-top: solid;
+    height: 80px;
+    margin: 0;
 }
 
 #sidebar {
-  width: 130px;
-  height: 270px;
-  float: left;
-  position: relative;
-  padding-left: 20px;
-  background-color: #E8D882;
-  white-space: pre-line;
-  
+    width: 130px;
+    height: 270px;
+    float: left;
+    position: relative;
+    padding-left: 20px;
+    background-color: #E8D882;
 }
 
 #main-content {
-  width: 580px;
-  height: 250px;
-  padding: 10px;
-  position: relative;
-  background-color: #f1e8b0;
-  float: right;
-}
-
-.choices {
-  display: block;
-  text-align: left;
-  text-decoration: none;
-  line-height: 10px;
-  margin-bottom: 5px;
-}
-
-.choices:hover {
-  color: rgb(12, 112, 189);
-  font-size: 15px;
-}
-#CoffeeCup {
-  position: absolute;
-  right: 10px;
+    width: 580px;
+    height: 250px;
+    padding: 10px;
+    position: relative;
+    background-color: #f1e8b0;
+    float: right;
+    overflow: hidden;
 }
 
 #footer {
-  background-color: #ccaa66;
-  text-align: center;
-  border-top-style: solid;
-  height: 52px;
-  width: 750px;
-  margin-top: 270px;
-  padding-top: 10px;
-  font-style: italic;
-  font-size: 10px;
+    background-color: #ccaa66;
+    text-align: center;
+    border-top-style: solid;
+    height: 52px;
+    width: 750px;
+    margin-top: 270px;
+    padding-top: 10px;
+    font-style: italic;
+    font-size: 10px;
 }
 
-#menu {
-  width: 230px;
-  height: auto;
-  margin: 0 auto;
-  padding-left: 20px;
-  font-size: 15px;
-  text-align: center;
+/* Navigation */
+.choices {
+    display: block;
+    text-align: left;
+    text-decoration: none;
+    margin-bottom: 5px;
 }
 
-.food {
-  display: block;
-  margin-bottom: 10px;
-  text-decoration: none;
-  color: #330000; 
+.choices:hover {
+    color: rgb(12, 112, 189);
+    font-size: 15px;
 }
 
-.food:hover {
-  color: #ccaa66;
-  font-size: 20px;
-}
-
-#coffee {
-  width: 530px;
-  height: auto;
-  margin: 0 auto;
-  padding-left: 20px;
-  font-size: 15px;
-  text-align:justify;
-  line-height: 20px;
-}
-
-.backbutton {
-  display: inline-block;
-  text-align: right;
-  text-decoration: none;
-  color: #330000;
-  border: 1px solid #330000;
-  padding: 5px;
-  background-color: #f1e8b0;
-  border-radius: 5px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.backbutton:hover {
-  color: #330000;
-  background-color: #ccaa66;
-  font-size: 16px;
-}
-
-
-audio {
-            display: none;
-        }
-        
-        /* Show targeted audio player */
-        audio:target {
-            display: block;
-            margin: 20px auto;
-        }
-        
-        .song-buttons {
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        button {
-            padding: 10px 20px;
-            margin: 5px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+/* Section Styles */
 section {
-  display: none;
+    display: none;
 }
 
 section:target {
-  display: block;
+    display: block;
+}
+
+section h2 {
+    color: #663300;
+    border-bottom: 2px solid #ccaa66;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Home Section */
+#CoffeeCup {
+    position: absolute;
+    right: 10px;
+}
+
+/* Menu Section */
+#menu {
+    width: 100%;
+    height: 230px;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    text-align: center;
+    overflow-y: auto;
+}
+
+#menu h3 {
+    color: #663300;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    margin-bottom: 15px;
+}
+
+.food {
+    display: inline-block;
+    width: 40%;
+    margin: 5px;
+    text-decoration: none;
+    color: #330000; 
+    background: linear-gradient(to right, #e6d5b8, #f1e8b0);
+    padding: 6px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.food:hover {
+    color: #fff;
+    background: linear-gradient(to right, #996633, #ccaa66);
+    transform: translateX(5px);
+}
+
+/* Menu Items Styling */
+#coffee, #tea, #refreshers, #pastries, #lightbites, #extras {
+    width: 530px;
+    height: auto;
+    margin: 0 auto;
+    padding-left: 20px;
+    font-size: 15px;
+    text-align: justify;
+}
+
+/* Menu Navigation */
+.backbutton {
+    display: inline-block;
+    text-align: right;
+    text-decoration: none;
+    color: #330000;
+    border: 1px solid #330000;
+    padding: 5px;
+    background-color: #f1e8b0;
+    border-radius: 5px;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+
+.backbutton:hover {
+    color: #330000;
+    background-color: #ccaa66;
+    font-size: 16px;
+}
+
+/* Music Section */
+#music {
+    text-align: center;
+    padding: 10px 0;
+}
+
+#music p {
+    color: #663300;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+#music button {
+    width: 30%;
+    background: linear-gradient(to right, #996633, #ccaa66);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 15px;
+    margin: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+#music button:hover {
+    background: linear-gradient(to right, #663300, #996633);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.song-buttons {
+    text-align: center;
+    margin-top: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Jobs Section */
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 5px;
+    margin-top: -10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.job-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.job-grid::-webkit-scrollbar-track {
+    background: #f1e8b0;
+    border-radius: 4px;
+}
+
+.job-grid::-webkit-scrollbar-thumb {
+    background: #ccaa66;
+    border-radius: 4px;
+}
+
+.job-card {
+    background: linear-gradient(145deg, #f1e8b0, #e6d5b8);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.job-icon {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.job-card h3 {
+    color: #663300;
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.job-card p {
+    color: #996633;
+    font-style: italic;
+    margin: 5px 0;
+    font-size: 0.8em;
+}
+
+.job-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    text-align: left;
+}
+
+.job-card li {
+    padding: 2px 5px;
+    position: relative;
+    font-size: 0.8em;
+}
+
+.job-card li::before {
+    content: "☕";
+    margin-right: 8px;
+    color: #996633;
+}
+
+.apply-btn {
+    background: linear-gradient(to right, #996633, #ccaa66);
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.apply-btn:hover {
+    background: linear-gradient(to right, #663300, #996633);
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Media Controls */
+audio {
+    display: none;
+}
+
+audio:target {
+    display: block;
+    width: 60%;
+    position: relative;
+    top: 100px;  /* Move player down */
+    margin: 0 auto;
+    border-radius: 20px;
+    background: linear-gradient(to right, #996633, #ccaa66);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    height: 35px;  /* Added fixed height */
+    position: relative;
+}
+
+audio:target::before {
+    content: attr(title);  /* Use title attribute instead of id */
+    display: block;
+    position: absolute;
+    top: -30px;
+    width: 100%;
+    text-align: center;
+    color: #663300;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+audio::-webkit-media-controls-panel {
+    background: linear-gradient(to right, #e6d5b8, #f1e8b0);
+    border-radius: 20px;
+    padding: 2px;  /* Reduced padding */
+}
+
+audio::-webkit-media-controls-play-button {
+    background-color: #996633;
+    border-radius: 50%;
+    transform: scale(0.8);  /* Reduced from 1.0 */
+    margin: 0 2px;  /* Added margin control */
+}
+
+audio::-webkit-media-controls-timeline {
+    background-color: #ccaa66;
+    border-radius: 25px;
+    margin: 0 15px;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    color: #663300;
+    font-weight: bold;
 }
