@@ -15,43 +15,97 @@
 
     <!-- Map Content -->
     <div id="map-content" style="display: none;">
-        <h1>Interactive PUP Vicinity Map</h1>
-        <!-- Image map -->
-        <img src="pup-map.jpg" alt="PUP Vicinity Map" usemap="#pup-map" id="pup-map-img">
+        <h1>INTERACTIVE PUP KIOSK</h1>
+
+        <div class="breadcrumb">
+            <span>Home</span>
+        </div>
+
+        <div id="map-wrapper">
+            <div class="map-container">
+                <div id="map-blur-bg"></div>
+                <img src="pup-map.jpg" alt="PUP Vicinity Map" usemap="#pup-map" id="pup-map-img">
+            </div>
+        </div>
         <map name="pup-map">
-            <area shape="rect" coords="1035,565,1109,578" href="#" alt="PUP Pylon" title="PUP Pylon" 
-                  onmouseover="showInfo('Area 1: The Pylon originally stood for the true, the good and the beautiful.'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+            <area shape="rect" coords="1316,703,1334,725" href="#" alt="PUP Pylon" title="PUP Pylon" 
+                  onmouseover="showInfo(
+                    'PUP Pylon',
+                    'The Pylon originally stood for the true, the good and the beautiful. It represents the core values of PUP education.',
+                    'images/pylon.jpg'
+                  );" 
+                  onmouseout="hideInfo();">
             <area shape="circle" coords="1030,602,12" href="#" alt="The Mural" title="The Mural"
-                  onmouseover="showInfo('Area 2: The Mural. The sculpture was built by national artist Eduardo Castrillo in 1974.'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+                  onmouseover="showInfo(
+                    'The Mural',
+                    'The sculpture was built by national artist Eduardo Castrillo in 1974. It symbolizes the university\'s commitment to arts and culture.',
+                    'images/mural.jpg'
+                  );" 
+                  onmouseout="hideInfo();">
             <area shape="rect" coords="900,500,950,550" href="#" alt="Location 3" title="Location 3"
-                  onmouseover="showInfo('Area 3: Student Activity Center'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+                    onmouseover="showInfo(
+                        'Area 3: Student Activity Center',
+                        'The Student Activity Center is a hub for student organizations and activities.',
+                        'images/activity_center.jpg'
+                    );" 
+                    onmouseout="hideInfo();">
             <area shape="rect" coords="800,400,850,450" href="#" alt="Location 4" title="Location 4"
-                  onmouseover="showInfo('Area 4: Main Library'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+                    onmouseover="showInfo(
+                        'Area 4: Main Library',
+                        'The Main Library houses a vast collection of academic resources and study spaces.',
+                        'images/library.jpg'
+                    );" 
+                    onmouseout="hideInfo();">
             <area shape="rect" coords="700,300,750,350" href="#" alt="Location 5" title="Location 5"
-                  onmouseover="showInfo('Area 5: Administration Building'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+                    onmouseover="showInfo(
+                        'Area 5: Administration Building',
+                        'The Administration Building is the central hub for university administration and services.',
+                        'images/admin_building.jpg'
+                    );" 
+                    onmouseout="hideInfo();">
             <area shape="rect" coords="600,200,650,250" href="#" alt="Location 6" title="Location 6"
-                  onmouseover="showInfo('Area 6: College of Engineering'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+                    onmouseover="showInfo(
+                        'Area 6: College of Engineering',
+                        'The College of Engineering offers various engineering programs and research facilities.',
+                        'images/engineering.jpg'
+                    );" 
+                    onmouseout="hideInfo();">
             <area shape="rect" coords="500,300,550,350" href="#" alt="Location 7" title="Location 7"
-                  onmouseover="showInfo('Area 7: Laboratory High School'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+                    onmouseover="showInfo(
+                        'Area 7: Laboratory High School',
+                        'The Laboratory High School provides secondary education with a focus on science and technology.',
+                        'images/lab_high_school.jpg'
+                    );" 
+                    onmouseout="hideInfo();">
             <area shape="rect" coords="400,400,450,450" href="#" alt="Location 8" title="Location 8"
-                  onmouseover="showInfo('Area 8: College of Science'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+                    onmouseover="showInfo(
+                        'Area 8: College of Science',
+                        'The College of Science offers programs in various scientific disciplines.',
+                        'images/science.jpg'
+                    );" 
+                    onmouseout="hideInfo();">
             <area shape="rect" coords="300,500,350,550" href="#" alt="Location 9" title="Location 9"
-                  onmouseover="showInfo('Area 9: Sports Complex'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+                    onmouseover="showInfo(
+                        'Area 9: Sports Complex',
+                        'The Sports Complex includes facilities for various sports and physical activities.',
+                        'images/sports_complex.jpg'
+                    );" 
+                    onmouseout="hideInfo();">
             <area shape="rect" coords="200,600,250,650" href="#" alt="Location 10" title="Location 10"
-                  onmouseover="showInfo('Area 10: Gymnasium'); highlightArea(this);" 
-                  onmouseout="hideInfo(); removeHighlight(this);">
+                    onmouseover="showInfo(
+                        'Area 10: Gymnasium',
+                        'The Gymnasium is used for indoor sports and events.',
+                        'images/gymnasium.jpg'
+                    );" 
+                    onmouseout="hideInfo();">
         </map>
         <!-- Information Box -->
         <div id="info-box"></div>
+
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="zoomIn()">+</button>
+            <button class="zoom-btn" onclick="zoomOut()">−</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
