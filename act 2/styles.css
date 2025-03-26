@@ -1,24 +1,24 @@
-/* Base Styles */
 body {
     font-family: Verdana;
     background-color: #ffffcc;
     color: #330000;
 }
 
-/* Layout Containers */
 #container {
-    margin: 20px 20% 0 23%;
+    margin-left: 23%;
+    margin-right: 20%;
+    margin-top: 20px;
     height: 419px;
     width: 750px;
     padding: 0;
-    border: solid;
+    border-style: solid;
 }
 
 #header {
     background-color: #ccaa66;
     text-align: center;
-    border-bottom: solid;
-    border-top: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
     height: 80px;
     margin: 0;
 }
@@ -30,6 +30,7 @@ body {
     position: relative;
     padding-left: 20px;
     background-color: #E8D882;
+    white-space: pre-line;
 }
 
 #main-content {
@@ -54,11 +55,11 @@ body {
     font-size: 10px;
 }
 
-/* Navigation */
 .choices {
     display: block;
     text-align: left;
     text-decoration: none;
+    line-height: 10px;
     margin-bottom: 5px;
 }
 
@@ -67,7 +68,6 @@ body {
     font-size: 15px;
 }
 
-/* Section Styles */
 section {
     display: none;
 }
@@ -78,19 +78,16 @@ section:target {
 
 section h2 {
     color: #663300;
-    border-bottom: 2px solid #ccaa66;
-    padding-bottom: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 18px;
 }
 
-/* Home Section */
 #CoffeeCup {
     position: absolute;
     right: 10px;
+    max-width: 200px;
 }
 
-/* Menu Section */
 #menu {
     width: 100%;
     height: 230px;
@@ -127,7 +124,6 @@ section h2 {
     transform: translateX(5px);
 }
 
-/* Menu Items Styling */
 #coffee, #tea, #refreshers, #pastries, #lightbites, #extras {
     width: 530px;
     height: auto;
@@ -137,7 +133,22 @@ section h2 {
     text-align: justify;
 }
 
-/* Menu Navigation */
+#coffee li, #tea li, #refreshers li, #pastries li, #lightbites li, #extras li {
+    list-style-type: none;
+    padding: 8px 0;
+    margin: 0;
+    text-align: left;
+    position: relative;
+    padding-left: 25px;
+}
+
+#coffee li::before, #tea li::before, #refreshers li::before, #pastries li::before, #lightbites li::before, #extras li::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .backbutton {
     display: inline-block;
     text-align: right;
@@ -158,7 +169,6 @@ section h2 {
     font-size: 16px;
 }
 
-/* Music Section */
 #music {
     text-align: center;
     padding: 10px 0;
@@ -203,7 +213,6 @@ button {
     cursor: pointer;
 }
 
-/* Jobs Section */
 .job-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -299,7 +308,6 @@ button {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Media Controls */
 audio {
     display: none;
 }
@@ -308,17 +316,17 @@ audio:target {
     display: block;
     width: 60%;
     position: relative;
-    top: 100px;  /* Move player down */
+    top: 100px;
     margin: 0 auto;
     border-radius: 20px;
     background: linear-gradient(to right, #996633, #ccaa66);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    height: 35px;  /* Added fixed height */
+    height: 35px;
     position: relative;
 }
 
 audio:target::before {
-    content: attr(title);  /* Use title attribute instead of id */
+    content: attr(title);
     display: block;
     position: absolute;
     top: -30px;
@@ -333,14 +341,14 @@ audio:target::before {
 audio::-webkit-media-controls-panel {
     background: linear-gradient(to right, #e6d5b8, #f1e8b0);
     border-radius: 20px;
-    padding: 2px;  /* Reduced padding */
+    padding: 2px;
 }
 
 audio::-webkit-media-controls-play-button {
     background-color: #996633;
     border-radius: 50%;
-    transform: scale(0.8);  /* Reduced from 1.0 */
-    margin: 0 2px;  /* Added margin control */
+    transform: scale(0.8);
+    margin: 0 2px;
 }
 
 audio::-webkit-media-controls-timeline {
