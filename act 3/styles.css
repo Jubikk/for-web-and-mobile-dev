@@ -240,18 +240,6 @@ body {
     background: #600000;
 }
 
-/* Remove .breadcrumb styles */
-
-/* Remove these sections:
-.map-legend {...}
-.legend-item {...}
-.legend-icon {...}
-.fullscreen-btn {...}
-.location-counter {...}
-*/
-
-/* Keep only zoom controls and other essential styles */
-
 area:hover {
     cursor: pointer;
 }

@@ -1,3 +1,6 @@
+const ORIGINAL_IMAGE_WIDTH = 1920; // Set this to your image's actual width
+const ORIGINAL_IMAGE_HEIGHT = 1080; // Set this to your image's actual height
+
 function showInfo(title, description, imagePath) {
     const infoBox = document.getElementById('info-box');
     infoBox.innerHTML = `
@@ -17,23 +20,14 @@ function showInfo(title, description, imagePath) {
 }
 
 function calculateImagePosition(e) {
-    const container = document.querySelector('.map-container');
     const image = document.getElementById('pup-map-img');
-    const rect = container.getBoundingClientRect();
-    const imageRect = image.getBoundingClientRect();
+    const rect = image.getBoundingClientRect();
+    
+    // Account for zoom level
+    const x = (e.clientX - rect.left) / currentZoom;
+    const y = (e.clientY - rect.top) / currentZoom;
 
-    // Get the actual image dimensions within the container
-    const imageWidth = imageRect.width;
-    const imageHeight = imageRect.height;
-
-    // Calculate position relative to the actual image
-    const x = (e.clientX - imageRect.left);
-    const y = (e.clientY - imageRect.top);
-
-    return {
-        x: Math.max(0, Math.min(x, imageWidth)),
-        y: Math.max(0, Math.min(y, imageHeight))
-    };
+    return { x, y };
 }
 
 function moveInfoBox(e) {
@@ -41,7 +35,9 @@ function moveInfoBox(e) {
     const pos = calculateImagePosition(e);
     
     // Position the info box with some offset from cursor
-    infoBox.style.left = `${e.clientX + 15}px`;
+    // Use screen coordinates instead of image coordinates
+    const offsetX = window.innerWidth - e.clientX < 400 ? -400 : 15; // Prevent overflow
+    infoBox.style.left = `${e.clientX + offsetX}px`;
     infoBox.style.top = `${e.clientY + 15}px`;
 }
 
@@ -73,7 +69,21 @@ function zoomOut() {
 
 function updateZoom() {
     const image = document.getElementById('pup-map-img');
+    const container = document.querySelector('.map-container');
+    
+    // Center the zoom
+    const centerX = container.offsetWidth / 2;
+    const centerY = container.offsetHeight / 2;
+    
+    image.style.transformOrigin = `${centerX}px ${centerY}px`;
     image.style.transform = `scale(${currentZoom})`;
+    
+    // Update all area coordinates after zoom
+    const areas = document.getElementsByTagName('area');
+    Array.from(areas).forEach(area => {
+        const scaledCoords = calculateScaledCoordinates(area);
+        area.coords = scaledCoords.join(',');
+    });
 }
 
 function updateBreadcrumb(location) {
@@ -90,3 +100,43 @@ function startMap() {
     const mapBlurBg = document.getElementById('map-blur-bg');
     mapBlurBg.style.backgroundImage = `url(${mapImage.src})`;
 }
+
+function calculateScaledCoordinates(area) {
+    const image = document.getElementById('pup-map-img');
+    const rect = image.getBoundingClientRect();
+    const coords = area.coords.split(',').map(Number);
+    
+    // Calculate scale factors
+    const scaleX = rect.width / ORIGINAL_IMAGE_WIDTH;
+    const scaleY = rect.height / ORIGINAL_IMAGE_HEIGHT;
+    
+    // Scale coordinates
+    let scaledCoords;
+    if (area.shape === 'rect') {
+        scaledCoords = [
+            coords[0] * scaleX,
+            coords[1] * scaleY,
+            coords[2] * scaleX,
+            coords[3] * scaleY
+        ];
+    } else if (area.shape === 'circle') {
+        scaledCoords = [
+            coords[0] * scaleX,
+            coords[1] * scaleY,
+            coords[2] * Math.min(scaleX, scaleY) // radius
+        ];
+    }
+    
+    return scaledCoords;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const areas = document.getElementsByTagName('area');
+    Array.from(areas).forEach(area => {
+        area.addEventListener('mouseover', function(e) {
+            const scaledCoords = calculateScaledCoordinates(this);
+            // Update area coordinates
+            this.coords = scaledCoords.join(',');
+        });
+    });
+});
