@@ -1,4 +1,3 @@
-/* Add at the beginning of the file */
 .welcome-screen {
     position: fixed;
     top: 0;
@@ -13,7 +12,7 @@
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(8px);
-    z-index: 10000; /* Highest z-index to ensure it's on top */
+    z-index: 10000;
 }
 
 .welcome-content {
@@ -129,11 +128,10 @@
     object-fit: contain;
 }
 
-/* Basic styles */
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
     background: #be2121;
@@ -143,7 +141,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
     background: #800000;
     box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
@@ -152,7 +150,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    max-height: 100vh; /* Ensure image doesn't exceed viewport height */
+    max-height: 100vh;
     transition: transform 0.3s ease;
 }
 
@@ -163,7 +161,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 15px rgba(0,0,0,0.2);
     display: none;
-    z-index: 8000; /* Lowest of the overlay elements */
+    z-index: 8000;
     max-width: 300px;
     pointer-events: none;
 }
@@ -202,7 +200,6 @@ area:hover {
     filter: brightness(1.2);
 }
 
-/* Optional: Add highlight effect when hovering over areas */
 area:hover + #info-box {
     transform: scale(1.02);
 }
@@ -215,7 +212,7 @@ area:hover + #info-box {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 9000; /* Lower than welcome screen but higher than info-box */
+    z-index: 9000;
     justify-content: center;
     align-items: center;
 }

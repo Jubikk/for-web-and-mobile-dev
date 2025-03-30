@@ -17,7 +17,6 @@ function moveInfoBox(e) {
     let left = e.pageX + padding;
     let top = e.pageY + padding;
     
-    // Adjust position if it would go off screen
     if (left + infoBox.offsetWidth > window.innerWidth) {
         left = e.pageX - infoBox.offsetWidth - padding;
     }
@@ -39,7 +38,6 @@ function showFullDescription(title, description, imagePath) {
     const fullDescBox = document.getElementById('full-description-box');
     const content = fullDescBox.querySelector('.full-description-content');
     
-    // Get the full description from the clicked element
     const fullDescription = event.target.getAttribute('data-full-description') || description;
     
     content.querySelector('h2').textContent = title;
@@ -49,7 +47,6 @@ function showFullDescription(title, description, imagePath) {
     
     fullDescBox.style.display = 'flex';
     
-    // Enhanced animation
     content.style.opacity = 0;
     content.style.transform = 'translateY(30px) scale(0.95)';
     setTimeout(() => {
@@ -59,7 +56,6 @@ function showFullDescription(title, description, imagePath) {
     }, 10);
 }
 
-// Add close animation
 function closeFullDescription() {
     const fullDescBox = document.getElementById('full-description-box');
     const content = fullDescBox.querySelector('.full-description-content');
@@ -86,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     });
 
-    // Add transition property to welcome screen
     welcomeScreen.style.transition = 'opacity 0.5s ease';
 
     const areas = document.querySelectorAll('area');
@@ -116,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
         closeFullDescription();
     });
 
-    // Close full description when clicking outside
     fullDescBox.addEventListener('click', function(e) {
         if (e.target === fullDescBox) {
             closeFullDescription();
