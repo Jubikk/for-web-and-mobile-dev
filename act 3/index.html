@@ -3,111 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUP Vicinity Map Interaction</title>
+    <title>PUP Kiosk</title>
+    <link rel="icon" type="image/x-icon" href="pup icon.png">
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
 </head>
 <body>
-    <!-- Welcome Screen -->
-    <div id="welcome-screen">
-        <h1 class="welcome-title">Welcome to PUP Interactive Map</h1>
-        <button onclick="startMap()">Click to View the PUP Map</button>
-    </div>
-
-    <!-- Map Content -->
-    <div id="map-content" style="display: none;">
-        <h1>INTERACTIVE PUP KIOSK</h1>
-
-        <div class="breadcrumb">
-            <span>Home</span>
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <img src="pup logo.png" alt="PUP Logo" class="logo">
+            <h1>Welcome to Interactive PUP Kiosk</h1>
+            <p>Explore the Polytechnic University of the Philippines campus through our interactive map.</p>
+            <button id="enter-btn">Enter Map</button>
         </div>
+    </div>
+    <div class="map-container" style="display: none;">
+        <img src="pup-map.jpg" alt="PUP Vicinity Map" usemap="#pup-map" id="pup-map-img">
+        <map name="pup-map">
+            <!-- THE PYLON -->
+            <area shape="circle" coords="1095,552,23" 
+                href="#" 
+                alt="A historical landmark of PUP" 
+                title="THE PYLON" 
+                data-image="pictures/pup_pylon.jpg"
+                data-full-description="The Pylon stands as the most iconic symbol of the Polytechnic University of the Philippines, representing the institution's commitment to excellence and progress. This majestic structure reaches skyward as a beacon of hope and inspiration for generations of students. Its distinctive design, featuring clean geometric lines and robust construction, embodies the university's strong foundation in both traditional values and modern innovation.">
+            
+            <!-- THE MURAL -->
+            <area shape="circle" coords="1029,570,20" 
+                href="#" 
+                alt="A vibrant artwork showcasing PUP's culture" 
+                title="THE MURAL" 
+                data-image="pictures/pup_mural.jpg"
+                data-full-description="The PUP Mural is a magnificent artistic centerpiece that celebrates the university's rich history and cultural heritage. Created with vibrant colors and intricate details, this expansive artwork depicts various scenes from PUP's journey through the years. It showcases the institution's values, achievements, and the spirit of its community through symbolic imagery and meaningful representations.">
 
-        <div id="map-wrapper">
-            <div class="map-container">
-                <div id="map-blur-bg"></div>
-                <img src="pup-map.jpg" alt="PUP Vicinity Map" usemap="#pup-map" id="pup-map-img">
+            <!-- VISITOR'S LOUNGE -->
+            <area shape="circle" coords="1045,510,19" 
+                href="#" 
+                alt="A welcoming area for guests" 
+                title="VISITOR'S LOUNGE" 
+                data-image="pictures/pup_visitors lounge.png"
+                data-full-description="The Visitor's Lounge serves as PUP's welcoming space for guests, parents, and visitors. This comfortable and well-appointed area provides a relaxing atmosphere where visitors can wait, meet with university staff, or gather information about the campus. The lounge features modern furnishings, informative displays about PUP's programs, and friendly staff ready to assist guests.">
+
+            <!-- OPEN COURT -->
+            <area shape="circle" coords="1089,487,17" 
+                href="#" 
+                alt="A space for outdoor activities and sports" 
+                title="OPEN COURT" 
+                data-image="pictures/pup_ open court.png"
+                data-full-description="The Open Court is a versatile outdoor space that serves as a hub for various student activities and sports events. This well-maintained court provides students with a perfect venue for basketball, volleyball, and other recreational activities. It's also frequently used for university gatherings, physical education classes, and impromptu student meetups.">
+
+            <!-- LAWN TENNIS COURT -->
+            <area shape="circle" coords="999,441,19" 
+                href="#" 
+                alt="A venue for tennis enthusiasts" 
+                title="LAWN TENNIS COURT" 
+                data-image="pictures/pup_lawn tennis court.jpg"
+                data-full-description="The Lawn Tennis Court is a dedicated space for tennis enthusiasts within the PUP campus. This well-maintained court provides students and faculty with an excellent venue for practicing and enjoying the sport. It is also used for friendly matches and university-level competitions, fostering a sense of community and sportsmanship.">
+
+            <!-- BASKETBALL COURT -->
+            <area shape="circle" coords="916,416,17" 
+                href="#" 
+                alt="A court for basketball games and events" 
+                title="BASKETBALL COURT" 
+                data-image="pictures/pup_basketball court.jpg"
+                data-full-description="The Basketball Court is a popular venue for sports activities and events at PUP. This court is equipped to host basketball games, training sessions, and recreational play. It serves as a gathering place for students to engage in physical activities, build teamwork, and enjoy the spirit of competition.">
+
+            <!-- SOUVENIR SHOP -->
+            <area shape="circle" coords="807,474,17" 
+                href="#" 
+                alt="A place to buy PUP memorabilia" 
+                title="SOUVENIR SHOP" 
+                data-image="pictures/pup_souvenir shop.jpg"
+                data-full-description="The Souvenir Shop offers a variety of PUP-themed merchandise and memorabilia. Visitors and students can purchase items such as shirts, mugs, and keychains that showcase their pride in being part of the PUP community. The shop is a great place to find unique gifts and keepsakes.">
+
+            <!-- MABINI SHRINE -->
+            <area shape="circle" coords="715,431,16" 
+                href="#" 
+                alt="A tribute to Apolinario Mabini" 
+                title="MABINI SHRINE" 
+                data-image="pictures/pup_mabini shrine.png"
+                data-full-description="The Mabini Shrine is a historical landmark dedicated to Apolinario Mabini, a prominent figure in Philippine history. This shrine serves as a reminder of Mabini's contributions to the country's independence and his enduring legacy. It is a place of reflection and inspiration for visitors.">
+
+            <!-- MABINI MUSEUM -->
+            <area shape="circle" coords="647,435,15" 
+                href="#" 
+                alt="A museum dedicated to historical artifacts" 
+                title="MABINI MUSEUM" 
+                data-image="pictures/pup_mabini museum.jpg"
+                data-full-description="The Mabini Museum houses a collection of historical artifacts and exhibits related to Apolinario Mabini and Philippine history. This museum provides visitors with an opportunity to learn about the country's past and appreciate the contributions of its national heroes.">
+
+            <!-- OBELISK -->
+            <area shape="circle" coords="753,393,17" 
+                href="#" 
+                alt="A towering structure symbolizing PUP's legacy" 
+                title="OBELISK" 
+                data-image="pictures/pup_obelisk.jpg"
+                data-full-description="The Obelisk is a towering structure that symbolizes the legacy and achievements of the Polytechnic University of the Philippines. Its impressive design and stature make it a prominent feature of the campus, serving as a source of pride and inspiration for the PUP community.">
+
+            <!-- FREEDOM PARK -->
+            <area shape="circle" coords="594,416,18" 
+                href="#" 
+                alt="A serene park for relaxation and gatherings" 
+                title="FREEDOM PARK" 
+                data-image="pictures/pup_freedom park.jpg"
+                data-full-description="Freedom Park is a serene and picturesque area within the PUP campus. This park provides students and visitors with a peaceful space for relaxation, social gatherings, and outdoor activities. Its lush greenery and open spaces make it a favorite spot for unwinding and enjoying nature.">
+
+            <!-- FOUNTAIN PARK -->
+            <area shape="circle" coords="496,424,15" 
+                href="#" 
+                alt="A picturesque park with a fountain centerpiece" 
+                title="FOUNTAIN PARK" 
+                data-image="pictures/pup_fountain park.jpg"
+                data-full-description="Fountain Park is a charming area featuring a beautiful fountain as its centerpiece. This park is a popular spot for students and visitors to relax, take photos, and enjoy the tranquil ambiance. Its well-maintained surroundings make it a delightful addition to the campus.">
+
+            <!-- INTER-FAITH CHAPEL -->
+            <area shape="circle" coords="326,454,25" 
+                href="#" 
+                alt="A place for spiritual reflection" 
+                title="INTER-FAITH CHAPEL" 
+                data-image="pictures/pup_inter-faith chapel.jpg"
+                data-full-description="The Inter-Faith Chapel is a sacred space within the PUP campus that welcomes individuals of all faiths for spiritual reflection and prayer. This chapel provides a peaceful environment for meditation, worship, and community gatherings, fostering a sense of unity and understanding.">
+
+            <!-- MAIN ACADEMIC BUILDING -->
+            <area shape="circle" coords="342,298,23" 
+                href="#" 
+                alt="The central hub for academic activities" 
+                title="MAIN ACADEMIC BUILDING" 
+                data-image="pictures/pup_main academic building.jpg"
+                data-full-description="The Main Academic Building is the central hub for academic activities at PUP. This building houses classrooms, lecture halls, and administrative offices, serving as the heart of the university's educational programs. Its modern facilities support a dynamic learning environment for students and faculty.">
+
+            <!-- GAZEBO -->
+            <area shape="circle" coords="110,360,25" 
+                href="#" 
+                alt="A shaded structure for relaxation" 
+                title="GAZEBO" 
+                data-image="pictures/pup_gazebo.jpg"
+                data-full-description="The Gazebo is a charming shaded structure within the PUP campus that provides a relaxing space for students and visitors. This area is ideal for casual meetups, study sessions, or simply enjoying the outdoors in a comfortable setting.">
+
+            <!-- GAZEBO NEAR OVAL -->
+            <area shape="circle" coords="471,469,26" 
+                href="#" 
+                alt="A shaded structure for relaxation" 
+                title="GAZEBO" 
+                data-image="pictures/pup_gazebo near oval.jpg"
+                data-full-description="The Gazebo near the Oval is a convenient and inviting spot for relaxation and socializing. Its proximity to the Oval makes it a popular choice for students looking to unwind after physical activities or enjoy the scenic surroundings.">
+
+            <!-- GRANDSTAND -->
+            <area shape="circle" coords="614,483,26" 
+                href="#" 
+                alt="A venue for large events and gatherings" 
+                title="GRANDSTAND" 
+                data-image="pictures/pup_grandstand.jpg"
+                data-full-description="The Grandstand is a prominent venue within the PUP campus that hosts large events, gatherings, and sports competitions. Its spacious design and seating capacity make it an ideal location for university-wide activities and celebrations.">
+
+            <!-- OVAL -->
+            <area shape="circle" coords="571,569,16" 
+                href="#" 
+                alt="A track and field area for sports activities" 
+                title="OVAL" 
+                data-image="pictures/pup_oval.jpg"
+                data-full-description="The Oval is a dedicated track and field area within the PUP campus that supports various sports activities and events. This well-maintained facility is used for running, athletics, and physical education classes, promoting health and fitness among students.">
+
+            <!-- TAHANAN NG ATLETA -->  
+            <area shape="circle" coords="538,673,17" 
+                href="#" 
+                alt="A residence for student-athletes" 
+                title="TAHANAN NG ATLETA" 
+                data-image="pictures/pup_tahanan ng atleta.jpg"
+                data-full-description="Tahanan ng Atleta is a residence designed specifically for student-athletes at PUP. This facility provides comfortable accommodations and amenities to support the needs of athletes, enabling them to focus on their training and academic pursuits.">
+
+            <!-- GABRIELA SILANG BUILDING -->
+            <area shape="circle" coords="427,681,17" 
+                href="#" 
+                alt="A building named after a revolutionary heroine" 
+                title="GABRIELA SILANG BUILDING" 
+                data-image="pictures/pup_gabriela silang building.jpg"
+                data-full-description="The Gabriela Silang Building is named after the revolutionary heroine Gabriela Silang. This building serves as a space for academic and administrative activities, reflecting the university's commitment to honoring historical figures and their contributions.">
+
+            <!-- FOOD AND NUTRITION BUILDING -->
+            <area shape="circle" coords="128,416,15" 
+                href="#" 
+                alt="A facility for food and nutrition studies" 
+                title="FOOD AND NUTRITION BUILDING" 
+                data-image="pictures/pup_food and nutrition building.jpg"
+                data-full-description="The Food and Nutrition Building is a specialized facility within the PUP campus that supports studies and research in food and nutrition. This building is equipped with modern laboratories and resources to enhance learning and innovation in this field.">
+
+            <!-- SAMPAGUITA BUILDING -->
+            <area shape="circle" coords="455,240,12" 
+                href="#" 
+                alt="A building named after the national flower" 
+                title="SAMPAGUITA BUILDING" 
+                data-image="pictures/pup_sampaguita building.jpg"
+                data-full-description="The Sampaguita Building is named after the national flower of the Philippines, symbolizing purity and resilience. This building houses classrooms and offices, contributing to the academic and administrative functions of the university.">
+
+            <!-- STUDENT CENTER -->
+            <area shape="circle" coords="493,258,12" 
+                href="#" 
+                alt="A hub for student activities and services" 
+                title="STUDENT CENTER" 
+                data-image="pictures/pup_student center.jpg"
+                data-full-description="The Student Center is a vibrant hub for student activities and services at PUP. This facility provides spaces for student organizations, events, and support services, fostering a sense of community and engagement among the student body.">
+
+            <!-- CHARLIE DEL ROSARIO BUILDING -->
+            <area shape="circle" coords="557,279,12" 
+                href="#" 
+                alt="A building named after a notable figure" 
+                title="CHARLIE DEL ROSARIO BUILDING" 
+                data-image="pictures/pup_charlie del rosario building.jpg"
+                data-full-description="The Charlie Del Rosario Building is named after a notable figure in PUP's history. This building serves as a space for academic and administrative activities, reflecting the university's dedication to honoring its legacy and contributors.">
+
+            <!-- LINEAR PARK -->
+            <area shape="circle" coords="561,223,14" 
+                href="#" 
+                alt="A linear green space for relaxation" 
+                title="LINEAR PARK" 
+                data-image="pictures/pup_linear park.jpg"
+                data-full-description="Linear Park is a green space within the PUP campus that offers a tranquil environment for relaxation and leisure. This park features landscaped pathways and seating areas, providing a refreshing escape from the hustle and bustle of campus life.">
+
+            <!-- LABORATORY HIGH SCHOOL BUILDING -->
+            <area shape="circle" coords="627,236,12" 
+                href="#" 
+                alt="A facility for high school education" 
+                title="LABORATORY HIGH SCHOOL BUILDING" 
+                data-image="pictures/pup_laboratory high shool building.jpg"
+                data-full-description="The Laboratory High School Building is a dedicated facility for high school education within the PUP campus. This building provides classrooms, laboratories, and resources to support the academic growth and development of high school students.">
+
+            <!-- PRINTING PRESS BUILDING -->
+            <area shape="circle" coords="666,180,14" 
+                href="#" 
+                alt="A facility for printing and publications" 
+                title="PRINTING PRESS BUILDING" 
+                data-image="pictures/pup_printing press building.jpg"
+                data-full-description="The Printing Press Building is a specialized facility within the PUP campus that supports printing and publication activities. This building is equipped with modern printing equipment and resources to enhance the university's communication and outreach efforts.">
+
+            <!-- PROPERTY AND SUPPLY MANAGEMENT OFFICE -->
+            <area shape="circle" coords="720,200,15" 
+                href="#" 
+                alt="Office for campus supplies and property" 
+                title="PROPERTY AND SUPPLY MANAGEMENT OFFICE" 
+                data-image="pictures/property-and-supply-management-office.jpg"
+                data-full-description="The Property and Supply Management Office is responsible for managing campus supplies and property. This office ensures the efficient allocation and maintenance of resources, supporting the university's operations and activities.">
+
+            <!-- WATER TOWER -->
+            <area shape="circle" coords="744,221,14" 
+                href="#" 
+                alt="A structure for water storage and distribution" 
+                title="WATER TOWER" 
+                data-image="pictures/pup_water tower.jpg"
+                data-full-description="The Water Tower is a vital structure within the PUP campus that supports water storage and distribution. This tower ensures a reliable water supply for the university's facilities and activities, contributing to the campus's sustainability.">
+
+            <!-- NINOY AQUINO LEARNING RESOURCE CENTER -->
+            <area shape="circle" coords="773,273,16" 
+                href="#" 
+                alt="A library and resource center" 
+                title="NINOY AQUINO LEARNING RESOURCE CENTER" 
+                data-image="pictures/pup_ninoy aquino learning resource center.jpg"
+                data-full-description="The Ninoy Aquino Learning Resource Center is a comprehensive library and resource center within the PUP campus. This facility provides students and faculty with access to a wide range of books, journals, and digital resources, supporting academic excellence and research.">
+
+            <!-- LAGOON COMMERCIAL SPACES -->
+            <area shape="circle" coords="582,310,15" 
+                href="#" 
+                alt="A commercial area near the lagoon" 
+                title="LAGOON COMMERCIAL SPACES" 
+                data-image="pictures/pup_lagoon commercial spaces.jpg"
+                data-full-description="The Lagoon Commercial Spaces offer a variety of shops and services near the lagoon area within the PUP campus. These spaces provide students and visitors with convenient access to food, beverages, and other essentials, enhancing the campus experience.">
+
+            <!-- AMPHITHEATER -->
+            <area shape="circle" coords="505,315,13" 
+                href="#" 
+                alt="An open-air venue for performances" 
+                title="AMPHITHEATER" 
+                data-image="pictures/pup_amphitheater.jpg"
+                data-full-description="The Amphitheater is an open-air venue within the PUP campus that hosts performances, events, and gatherings. This facility provides a unique and engaging space for cultural and artistic activities, fostering creativity and community spirit.">
+
+            <!-- LAGOON PARK -->
+            <area shape="circle" coords="642,352,16" 
+                href="#" 
+                alt="A scenic park surrounding the lagoon" 
+                title="LAGOON PARK" 
+                data-image="pictures/pup_lagoon park.jpg"
+                data-full-description="Lagoon Park is a scenic area within the PUP campus that surrounds the lagoon. This park offers a peaceful and picturesque environment for relaxation, socializing, and enjoying nature, making it a favorite spot for students and visitors.">
+
+            <!-- NUTRITION & FOOD TECHNOLOGY RESEARCH AND DEVELOPMENT CENTER BUILDING -->
+            <area shape="circle" coords="863,264,14" 
+                href="#" 
+                alt="A research facility for food technology" 
+                title="NUTRITION & FOOD TECHNOLOGY RESEARCH AND DEVELOPMENT CENTER BUILDING" 
+                data-image="pictures/pup_nutrition food tech building.jpg"
+                data-full-description="The Nutrition & Food Technology Research and Development Center Building is a specialized facility within the PUP campus that supports research and innovation in food technology. This building is equipped with state-of-the-art laboratories and resources to enhance learning and development in this field.">
+
+            <!-- HUMAN KINETICS BUILDING -->
+            <area shape="circle" coords="846,336,14" 
+                href="#" 
+                alt="A facility for physical education and sports" 
+                title="HUMAN KINETICS BUILDING" 
+                data-image="pictures/pup_human kinetics building.jpg"
+                data-full-description="The Human Kinetics Building is a dedicated facility within the PUP campus that supports physical education and sports activities. This building provides students and faculty with access to modern equipment and resources, promoting health and fitness.">
+
+            <!-- TAHANAN NG ALUMNI -->
+            <area shape="circle" coords="934,330,14" 
+                href="#" 
+                alt="A residence for alumni gatherings" 
+                title="TAHANAN NG ALUMNI" 
+                data-image="pictures/pup_tahanan ng alumni.jpg"
+                data-full-description="Tahanan ng Alumni is a residence within the PUP campus that serves as a venue for alumni gatherings and events. This facility provides a comfortable and welcoming space for reconnecting with fellow graduates and celebrating shared memories.">
+
+            <!-- SWIMMING POOL -->
+            <area shape="circle" coords="963,366,13" 
+                href="#" 
+                alt="A facility for swimming and aquatic activities" 
+                title="SWIMMING POOL" 
+                data-image="pictures/pup_swimmingpool.jpg"
+                data-full-description="The Swimming Pool is a facility within the PUP campus that supports swimming and aquatic activities. This pool is used for training, recreational swimming, and competitions, promoting health and fitness among students and faculty.">
+
+            <!-- MULTI-PURPOSE BUILDING -->
+            <area shape="circle" coords="1118,389,18" 
+                href="#" 
+                alt="A versatile facility for various events" 
+                title="MULTI-PURPOSE BUILDING" 
+                data-image="pictures/pup_gymnasium.jpg"
+                data-full-description="The Multi-Purpose Building is a versatile facility within the PUP campus that hosts various events, activities, and gatherings. This building is equipped to accommodate sports competitions, cultural performances, and university-wide celebrations.">
+
+            <!-- ENGINEERING AND SCIENCE RESEARCH CENTER -->
+            <area shape="circle" coords="1204,451,14" 
+                href="#" 
+                alt="A hub for engineering and science research" 
+                title="ENGINEERING AND SCIENCE RESEARCH CENTER" 
+                data-image="pictures/pup_engineering and science research center.jpg"
+                data-full-description="The Engineering and Science Research Center is a hub for research and innovation within the PUP campus. This facility provides students and faculty with access to advanced laboratories and resources, supporting academic excellence and technological development.">
+
+            <!-- COMMUNICATION BUILDING -->
+            <area shape="circle" coords="1041,150,13" 
+                href="#" 
+                alt="A facility for communication studies" 
+                title="COMMUNICATION BUILDING" 
+                data-image="pictures/pup_communication building.jpeg"
+                data-full-description="The Communication Building is a dedicated facility within the PUP campus that supports studies and research in communication. This building is equipped with modern resources and technology to enhance learning and innovation in this field.">
+
+            <!-- PUP THEATER -->
+            <area shape="circle" coords="1054,120,13" 
+                href="#" 
+                alt="A venue for theatrical performances" 
+                title="PUP THEATER" 
+                data-image="pictures/pup_theater.jpg"
+                data-full-description="The PUP Theater is a venue within the campus that hosts theatrical performances, cultural events, and artistic activities. This theater provides a platform for creativity and expression, fostering a vibrant arts community at PUP.">
+
+            <!-- ENGINEERING AND ARCHITECTURE BUILDING -->
+            <area shape="circle" coords="1101,117,13" 
+                href="#" 
+                alt="A facility for engineering and architecture studies" 
+                title="ENGINEERING AND ARCHITECTURE BUILDING" 
+                data-image="pictures/pup_cea.jpg"
+                data-full-description="The Engineering and Architecture Building is a specialized facility within the PUP campus that supports studies and research in engineering and architecture. This building is equipped with modern laboratories and resources to enhance learning and innovation in these fields.">
+
+            <!-- CONDOTEL -->
+            <area shape="circle" coords="965,64,16" 
+                href="#" 
+                alt="A hotel-like facility for guests and visitors" 
+                title="CONDOTEL" 
+                data-image="pictures/pup_condotel.jpg"
+                data-full-description="The Condotel is a hotel-like facility within the PUP campus that provides accommodations for guests and visitors. This facility offers comfortable rooms and amenities, ensuring a pleasant stay for those visiting the university.">
+
+            <!-- NDC TENNIS COURT AND CLUB HOUSE -->
+            <area shape="circle" coords="1159,127,14" 
+                href="#" 
+                alt="A venue for tennis and social events" 
+                title="NDC TENNIS COURT AND CLUB HOUSE" 
+                data-image="pictures/pup_ndc tennis and clubhouse.jpg"
+                data-full-description="The NDC Tennis Court and Club House is a venue within the PUP campus that supports tennis and social events. This facility provides students and visitors with access to well-maintained courts and a welcoming clubhouse for gatherings.">
+
+            <!-- NDC COVERED COURT -->
+            <area shape="circle" coords="1159,96,13" 
+                href="#" 
+                alt="A covered court for sports and events" 
+                title="NDC COVERED COURT" 
+                data-image="pictures/pup_ndc court.jpg"
+                data-full-description="The NDC Covered Court is a facility within the PUP campus that hosts sports and events. This covered court provides a versatile space for basketball, volleyball, and other activities, ensuring year-round usability regardless of weather conditions.">
+
+            <!-- BUSINESS PROCESSING OFFICE -->
+            <area shape="circle" coords="1231,105,14" 
+                href="#" 
+                alt="Office for business-related processes" 
+                title="BUSINESS PROCESSING OFFICE" 
+                data-image="pictures/pup_business processing office.png"
+                data-full-description="The Business Processing Office is a facility within the PUP campus that supports business-related processes and activities. This office provides students and faculty with access to resources and services that enhance efficiency and productivity.">
+
+            <!-- INFORMATION TECHNOLOGY BUILDING -->
+            <area shape="circle" coords="1230,56,13" 
+                href="#" 
+                alt="A facility for IT studies and research" 
+                title="INFORMATION TECHNOLOGY BUILDING" 
+                data-image="pictures/pup_itech.jpg"
+                data-full-description="The Information Technology Building is a specialized facility within the PUP campus that supports studies and research in information technology. This building is equipped with modern laboratories and resources to enhance learning and innovation in this field.">
+
+            <!-- ANTIQUE HOUSE -->
+            <area shape="circle" coords="1138,57,13" 
+                href="#" 
+                alt="A historical house showcasing antiques" 
+                title="ANTIQUE HOUSE" 
+                data-image="pictures/pup_antique house.jpg"
+                data-full-description="The Antique House is a historical landmark within the PUP campus that showcases a collection of antiques and artifacts. This house provides visitors with an opportunity to learn about the past and appreciate the cultural heritage of the university.">
+
+            <!-- GRADUATE SCHOOL -->
+            <area shape="circle" coords="1308,25,13" 
+                href="#" 
+                alt="A facility for postgraduate studies" 
+                title="GRADUATE SCHOOL" 
+                data-image="pictures/pup_graduate school.jpg"
+                data-full-description="The Graduate School is a dedicated facility within the PUP campus that supports postgraduate studies and research. This building provides students with access to advanced resources and opportunities for academic and professional growth.">
+
+            <!-- HASMIN BUILDING -->
+            <area shape="circle" coords="1387,37,12" 
+                href="#" 
+                alt="A building for academic and administrative purposes" 
+                title="HASMIN BUILDING" 
+                data-image="pictures/pup_hasmin.jpg"
+                data-full-description="The Hasmin Building is a facility within the PUP campus that supports academic and administrative activities. This building provides students and faculty with access to classrooms, offices, and resources that enhance the university's operations and programs.">
+        </map>
+    </div>
+    <div id="info-box"></div>
+    <div id="full-description-box" class="full-description">
+        <div class="full-description-content">
+            <span class="close-btn">&times;</span>
+            <h2></h2>
+            <div class="image-container">
+                <img src="" alt="">
+            </div>
+            <div class="description-content">
+                <p></p>
             </div>
         </div>
-        <map name="pup-map">
-            <area shape="circle" coords="1030,601,29" href="#" alt="PUP Pylon" title="PUP Pylon" 
-                  onmouseover="showInfo(
-                    'PUP Pylon',
-                    'The Pylon originally stood for the true, the good and the beautiful. It represents the core values of PUP education.',
-                    'images/pylon.jpg'
-                  );" 
-                  onmouseout="hideInfo();">
-            <area shape="circle" coords="1042,536,23" href="#" alt="The Mural" title="The Mural"
-                  onmouseover="showInfo(
-                    'The Mural',
-                    'The sculpture was built by national artist Eduardo Castrillo in 1974. It symbolizes the university\'s commitment to arts and culture.',
-                    'images/mural.jpg'
-                  );" 
-                  onmouseout="hideInfo();">
-            <area shape="rect" coords="900,500,950,550" href="#" alt="Location 3" title="Location 3"
-                    onmouseover="showInfo(
-                        'Area 3: Student Activity Center',
-                        'The Student Activity Center is a hub for student organizations and activities.',
-                        'images/activity_center.jpg'
-                    );" 
-                    onmouseout="hideInfo();">
-            <area shape="rect" coords="800,400,850,450" href="#" alt="Location 4" title="Location 4"
-                    onmouseover="showInfo(
-                        'Area 4: Main Library',
-                        'The Main Library houses a vast collection of academic resources and study spaces.',
-                        'images/library.jpg'
-                    );" 
-                    onmouseout="hideInfo();">
-            <area shape="rect" coords="700,300,750,350" href="#" alt="Location 5" title="Location 5"
-                    onmouseover="showInfo(
-                        'Area 5: Administration Building',
-                        'The Administration Building is the central hub for university administration and services.',
-                        'images/admin_building.jpg'
-                    );" 
-                    onmouseout="hideInfo();">
-            <area shape="rect" coords="600,200,650,250" href="#" alt="Location 6" title="Location 6"
-                    onmouseover="showInfo(
-                        'Area 6: College of Engineering',
-                        'The College of Engineering offers various engineering programs and research facilities.',
-                        'images/engineering.jpg'
-                    );" 
-                    onmouseout="hideInfo();">
-            <area shape="rect" coords="500,300,550,350" href="#" alt="Location 7" title="Location 7"
-                    onmouseover="showInfo(
-                        'Area 7: Laboratory High School',
-                        'The Laboratory High School provides secondary education with a focus on science and technology.',
-                        'images/lab_high_school.jpg'
-                    );" 
-                    onmouseout="hideInfo();">
-            <area shape="rect" coords="400,400,450,450" href="#" alt="Location 8" title="Location 8"
-                    onmouseover="showInfo(
-                        'Area 8: College of Science',
-                        'The College of Science offers programs in various scientific disciplines.',
-                        'images/science.jpg'
-                    );" 
-                    onmouseout="hideInfo();">
-            <area shape="rect" coords="300,500,350,550" href="#" alt="Location 9" title="Location 9"
-                    onmouseover="showInfo(
-                        'Area 9: Sports Complex',
-                        'The Sports Complex includes facilities for various sports and physical activities.',
-                        'images/sports_complex.jpg'
-                    );" 
-                    onmouseout="hideInfo();">
-            <area shape="rect" coords="200,600,250,650" href="#" alt="Location 10" title="Location 10"
-                    onmouseover="showInfo(
-                        'Area 10: Gymnasium',
-                        'The Gymnasium is used for indoor sports and events.',
-                        'images/gymnasium.jpg'
-                    );" 
-                    onmouseout="hideInfo();">
-        </map>
-        <!-- Information Box -->
-        <div id="info-box"></div>
-
-        <div class="zoom-controls">
-            <button class="zoom-btn" onclick="zoomIn()">+</button>
-            <button class="zoom-btn" onclick="zoomOut()">−</button>
-        </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
