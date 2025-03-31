@@ -15,29 +15,23 @@ function moveInfoBox(e) {
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
     
-    // Get cursor position
     let cursorX = e.clientX;
     let cursorY = e.clientY;
     
-    // Calculate available space on each side of the cursor
     const spaceRight = windowWidth - cursorX;
     const spaceBottom = windowHeight - cursorY;
     
-    // Set initial position
     let left = cursorX + padding;
     let top = cursorY + padding;
     
-    // Check horizontal position
     if (spaceRight < (infoBox.offsetWidth + padding)) {
         left = cursorX - infoBox.offsetWidth - padding;
     }
     
-    // Check vertical position
     if (spaceBottom < (infoBox.offsetHeight + padding)) {
         top = cursorY - infoBox.offsetHeight - padding;
     }
     
-    // Ensure box stays within viewport
     left = Math.max(padding, Math.min(left, windowWidth - infoBox.offsetWidth - padding));
     top = Math.max(padding, Math.min(top, windowHeight - infoBox.offsetHeight - padding));
     
